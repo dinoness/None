@@ -39,6 +39,7 @@ source ~/vsworkspace/ros_learning/catkin_ws/devel/setup.bush
 `add_executable(${PROJECT_NAME}_node src/snsr_pkg_node.cpp)`  
 其中`${PROJECT_NAME}_node`是**节点名字**，可以命名为`ultrasonic_node`,与原文件命名一致。  
 `src/snsr_pkg_node.cpp`**指定编译文件**，可以命名为`src/ultrasonic_node.cpp`  
+
 依赖包连同编译  
 ```
 target_link_libraries(ultrasonic_node    # 改为节点名字
@@ -48,6 +49,10 @@ target_link_libraries(ultrasonic_node    # 改为节点名字
 
 
 按下`ctrl+shift+B`进行编译,选择"make：bulid"  
+
+注：  
+1.节点不能同名  
+2.依赖包名字不能写错，否则编译时会找不到需要的包  
 
 ###### 运行
 1.启动ROS核心，`roscore`  
@@ -59,6 +64,8 @@ target_link_libraries(ultrasonic_node    # 改为节点名字
 注：每次编译产生新文件后需要重新加载工作空间
 报错：`Couldn't find executable named`,可能是CMakeList.txt某处的名字打错了  
 错误：编译后未能产生覆盖的效果，还是编译之前的模样。可能原因是catkin_ws下有“bulid_isolated”和“devel_isolated”文件夹，将它们删掉。另外编译的时候选择"make：bulid"而不是“make_ioslated:build”  
+错误：`[wpb_simple.launch] is neither a launch file in package [wpr_simulation] nor is [wpr_simulation] a launch file name`  
+原因是没有添加环境变量  
 
 #### 话题topic
 一个话题可以有多个订阅者和发布者  
@@ -72,7 +79,7 @@ target_link_libraries(ultrasonic_node    # 改为节点名字
 有.xml的文件夹可以看成是功能包  
 `rostopic list`，查看当前活跃话题 
 `rostopic echo 主题名称`，查看话题中消息包内容  
-`rostopic he 主题名称`，消息包发送频率  
+`rostopic hz 主题名称`，消息包发送频率  
 
 
 #### launch文件
@@ -100,4 +107,36 @@ target_link_libraries(ultrasonic_node    # 改为节点名字
 3.修改CMakeLists.txt文件，修改`project()`的内容  
 4.重新编译  
 
+相机标定  
+https://blog.csdn.net/GuanLingde/article/details/129415831  
+https://blog.csdn.net/catpico/article/details/120688795  
+ #利用strace追踪执行程序的过程
 
+综述参考博客
+https://blog.csdn.net/weixin_42344264/article/details/119221397
+
+学习指南
+https://blog.csdn.net/qq_48912663/article/details/121412756
+
+代码解读
+https://zhaoxuhui.top/blog/2021/11/11/imu-optimization-and-recently-lost-state-in-orb-slam3.html
+http://zhaoxuhui.top/tags/#SLAM
+
+轨迹输出
+https://blog.csdn.net/Barry_123/article/details/111314709
+
+http://wiki.ros.org/cn/ROS/Tutorials/InstallingandConfiguringROSEnvironment
+
+ros数据包相关操作
+https://blog.csdn.net/QLeelq/article/details/123201294
+https://blog.csdn.net/hx1113/article/details/121972486
+rosbag paly
+https://blog.csdn.net/Yangy_Jiaojiao/article/details/124419364
+ros包版本转换
+https://blog.csdn.net/lu_embedded/article/details/132451852
+ros2创建工作空间
+https://blog.csdn.net/fanshuaifang/article/details/114674746
+ros版本切换
+https://blog.csdn.net/aniclever/article/details/134790299
+ros1创建工作空间
+https://blog.csdn.net/weixin_42237429/article/details/90238000
