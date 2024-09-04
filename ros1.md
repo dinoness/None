@@ -107,24 +107,7 @@ target_link_libraries(ultrasonic_node    # 改为节点名字
 3.修改CMakeLists.txt文件，修改`project()`的内容  
 4.重新编译  
 
-相机标定  
-https://blog.csdn.net/GuanLingde/article/details/129415831  
-https://blog.csdn.net/catpico/article/details/120688795  
- #利用strace追踪执行程序的过程
-
-综述参考博客
-https://blog.csdn.net/weixin_42344264/article/details/119221397
-
-学习指南
-https://blog.csdn.net/qq_48912663/article/details/121412756
-
-代码解读
-https://zhaoxuhui.top/blog/2021/11/11/imu-optimization-and-recently-lost-state-in-orb-slam3.html
-http://zhaoxuhui.top/tags/#SLAM
-
-轨迹输出
-https://blog.csdn.net/Barry_123/article/details/111314709
-
+ros1创建工作空间
 http://wiki.ros.org/cn/ROS/Tutorials/InstallingandConfiguringROSEnvironment
 
 ros数据包相关操作
@@ -138,5 +121,3 @@ ros2创建工作空间
 https://blog.csdn.net/fanshuaifang/article/details/114674746
 ros版本切换
 https://blog.csdn.net/aniclever/article/details/134790299
-ros1创建工作空间
-https://blog.csdn.net/weixin_42237429/article/details/90238000
